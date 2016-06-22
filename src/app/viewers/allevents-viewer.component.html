@@ -1,0 +1,27 @@
+
+
+<h1>All Events</h1>
+
+<div *ngFor='let day of eventConferenceDays'>
+    
+    <h3>{{ day.Name }}</h3>
+    
+    <div  >
+
+        <table class="table table-striped">
+            <tr *ngFor='let event of day.EventEntries'>
+                <td width="20%"><small>
+                    <b>{{event.StartTime}}</b> - {{event.EndTime}}</small></td>
+                <td width="70%">{{event.Title}} <br><small>{{event.SubTitle}}</small></td>
+                <td width="10%">
+                
+                <a class="btn btn-default btn-sm" [routerLink]="['/event/' + event.Id]">Details</a>
+                </td>
+                
+            </tr>
+        </table>
+        
+        
+    </div>
+    
+</div>
