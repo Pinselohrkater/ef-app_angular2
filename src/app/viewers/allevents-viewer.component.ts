@@ -45,7 +45,7 @@ export class AllEventsViewerComponent implements OnInit {
                 
                 this.eventConferenceDays = data;
             });
-            
+             
         });
     }
     
