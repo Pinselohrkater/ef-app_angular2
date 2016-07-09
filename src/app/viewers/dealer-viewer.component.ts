@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ApiService, EventEntry, EventConferenceRoom, Dealer} from '../api/api.service';
+import {ApiService, EventEntry, EventConferenceRoom, Dealer, Image} from '../api/api.service';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
@@ -19,6 +19,7 @@ export class DealerViewerComponent implements OnInit {
     id:string;
 
     dealer:Dealer = null;
+    dealerPreviewImage:Image = null;
 
     ngOnInit() {
         this._routeParams.params
@@ -38,7 +39,10 @@ export class DealerViewerComponent implements OnInit {
         console.log(id);
         this._apiService.getDealer(this.id).then(data => {
             this.dealer = data;
-        })
-    }
 
+            this._apiService.getImage(this.dealer.ArtistImageId).then(data2 => {
+                this.dealerPreviewImage = data2;
+            });
+        });
+    }
 }

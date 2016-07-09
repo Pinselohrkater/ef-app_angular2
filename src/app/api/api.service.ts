@@ -10,6 +10,7 @@ export class ApiService {
     _eventConferenceDays:EventConferenceDay[] = [];
     _eventConferenceRooms:EventConferenceRoom[] = [];
     _dealers:Dealer[] = [];
+    _images: Image[] = [];
 
     constructor(private _http:Http) {
 
@@ -32,6 +33,9 @@ export class ApiService {
         });
     }
 
+    getImages(): Promise<Image[]> {
+        return this.getEntities("Image", this._images);
+    }
 
     getEventEntries():Promise<EventEntry[]> {
         return this.getEntities("EventEntry", this._eventEntries);
@@ -49,6 +53,13 @@ export class ApiService {
         return this.getEntities("Dealer", this._dealers);
     }
 
+    getImage(id:string):Promise<Image> {
+        return new Promise<Image>(resolve => {
+            this.getImages().then(entities => {
+                resolve(_.find(entities, {"Id": id}));
+            })
+        })
+    }
     getDealer(id:string):Promise<Dealer> {
         return new Promise<Dealer>(resolve => {
             this.getDealers().then(entities => {
@@ -124,4 +135,13 @@ export class EventConferenceDay {
 export class EventConferenceRoom {
     Id:string;
     Name:string;
+}
+
+export class Image {
+    Id: string;
+    Url: string;
+    Title: string;
+    Width: number;
+    Height: number;
+    MimeType: string;
 }
