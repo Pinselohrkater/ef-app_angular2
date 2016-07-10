@@ -3,10 +3,12 @@ import {ActivatedRoute} from '@angular/router';
 import {ApiService, EventEntry, EventConferenceRoom, Dealer, Image} from '../api/api.service';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
+import {ImageUrlPipe} from '../pipes/ImageUrlPipe';
 @Component({
     selector: 'my-dealer-viewer',
     templateUrl: 'app/viewers/dealer-viewer.component.html',
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES],
+    pipes: [ImageUrlPipe],
 //   styleUrls: ['app/event-detail.component.css']
 })
 
@@ -20,6 +22,7 @@ export class DealerViewerComponent implements OnInit {
 
     dealer:Dealer = null;
     dealerPreviewImage:Image = null;
+    
 
     ngOnInit() {
         this._routeParams.params
