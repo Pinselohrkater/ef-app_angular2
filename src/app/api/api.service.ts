@@ -113,7 +113,7 @@ export class Dealer {
     ArtPreviewCaption:string;
     ArtistThumbnailImageId:string;
     ArtistImageId:string;
-    ArtistPreviewImageId:string;
+    ArtPreviewImageId:string;
 }
 
 export class EventEntry {

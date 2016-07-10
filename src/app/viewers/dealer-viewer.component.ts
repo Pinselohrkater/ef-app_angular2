@@ -22,7 +22,7 @@ export class DealerViewerComponent implements OnInit {
 
     dealer:Dealer = null;
     dealerPreviewImage:Image = null;
-    
+    artistPreviewImage: Image = null;
 
     ngOnInit() {
         this._routeParams.params
@@ -43,8 +43,12 @@ export class DealerViewerComponent implements OnInit {
         this._apiService.getDealer(this.id).then(data => {
             this.dealer = data;
 
-            this._apiService.getImage(this.dealer.ArtistImageId).then(data2 => {
-                this.dealerPreviewImage = data2;
+            this._apiService.getImage(this.dealer.ArtistImageId).then(data => {
+                this.dealerPreviewImage = data;
+            });
+
+            this._apiService.getImage(this.dealer.ArtPreviewImageId).then(data => {
+                this.artistPreviewImage = data;
             });
         });
     }

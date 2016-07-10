@@ -22,6 +22,10 @@
     <div class="col-md-6 col-sm-12">
         <h3>About the Art</h3>
         <p>{{ dealer?.AboutTheArtText }}</p>
+
+        <img src="{{ artistPreviewImage?.Url | image}}" class="img-responsive"/>
+
+        <p>{{ dealer?.ArtPreviewCaption }}</p>
     </div>
 </div>
 
