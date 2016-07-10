@@ -1,31 +1,24 @@
-<div class="row">
-    <div class="col-lg-3 col-sm-12">
-        <img src="{{ dealerPreviewImage?.Url | image}}" class="img-responsive"/>
-    </div>
-    <div class="col-lg-9 col-sm-12">
-        <div *ngIf="dealer?.DisplayName != ''">
-            <h1>{{ dealer?.DisplayName }} <i>{{dealer?.AttendeeNickname}}</i></h1>
-        </div>
-        <div *ngIf="dealer?.DisplayName == ''">
-            <h1>{{ dealer?.AttendeeNickname}}</h1>
-        </div>
-
-        <p>{{dealer?.ShortDescription }}</p>
-    </div>
+<div *ngIf="dealer?.DisplayName != ''">
+    <h1>{{ dealer?.DisplayName }} <i>{{dealer?.AttendeeNickname}}</i></h1>
 </div>
+<div *ngIf="dealer?.DisplayName == ''">
+    <h1>{{ dealer?.AttendeeNickname}}</h1>
+</div>
+
+<p>{{dealer?.ShortDescription }}</p>
 
 <div class="row">
     <div class="col-md-6 col-sm-12">
         <h3>About the artist</h3>
+        <img src="{{ dealerPreviewImage?.Url | image}}" class="img-responsive"/>
         <p>{{ dealer?.AboutTheArtistText }}</p>
     </div>
     <div class="col-md-6 col-sm-12">
         <h3>About the Art</h3>
-        <p>{{ dealer?.AboutTheArtText }}</p>
-
         <img src="{{ artistPreviewImage?.Url | image}}" class="img-responsive"/>
 
-        <p>{{ dealer?.ArtPreviewCaption }}</p>
+        <p><i style="padding: 10px;">{{ dealer?.ArtPreviewCaption }}</i></p>
+        <p>{{ dealer?.AboutTheArtText }}</p>
     </div>
 </div>
 
