@@ -3,14 +3,17 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
 import * as _ from 'lodash';
 
+import {LocalStorage, SessionStorage} from '../localStorage/WebStorage'
+
+
 @Injectable()
 export class ApiService {
 
-    _eventEntries:EventEntry[] = [];
-    _eventConferenceDays:EventConferenceDay[] = [];
-    _eventConferenceRooms:EventConferenceRoom[] = [];
-    _dealers:Dealer[] = [];
-    _images: Image[] = [];
+    @LocalStorage() _eventEntries:EventEntry[] = [];
+    @LocalStorage() _eventConferenceDays:EventConferenceDay[] = [];
+    @LocalStorage() _eventConferenceRooms:EventConferenceRoom[] = [];
+    @LocalStorage() _dealers:Dealer[] = [];
+    @LocalStorage() _images: Image[] = [];
 
     constructor(private _http:Http) {
 

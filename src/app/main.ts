@@ -8,6 +8,8 @@ import { LocationStrategy, HashLocationStrategy }  from '@angular/common';
 
 import { HTTP_PROVIDERS } from '@angular/http';
 
+import {LocalStorageService} from "./localStorage/LocalStorageEmitter";
+
 declare var ENV: string;
 
 if (ENV === 'production') {
@@ -19,5 +21,6 @@ bootstrap(AppComponent, [
     provideForms(),
     APP_ROUTER_PROVIDERS,
     provide(LocationStrategy, {useClass : HashLocationStrategy}),
-    HTTP_PROVIDERS
+    HTTP_PROVIDERS,
+    LocalStorageService
 ]);

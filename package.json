@@ -38,6 +38,7 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.2",
     "@angular/router": "3.0.0-alpha.6",
     "@ngstarter/systemjs-extension": "1.0.0-rc.2",
+    "angular2-localstorage": "^0.4.0",
     "bootstrap-sass": "^3.3.6",
     "codelyzer": "0.0.23",
     "core-js": "^2.4.0",
