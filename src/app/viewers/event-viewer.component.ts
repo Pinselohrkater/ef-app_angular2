@@ -41,7 +41,7 @@ export class EventViewerComponent implements OnInit {
         this._apiService.getEventEntry(this.id).then(data => {
             this.eventEntry = data;
 
-            window.location = "eurofurence://event/" + this.eventEntry.Id;
+            window.location.assign("eurofurence://event/" + this.eventEntry.Id);
 
             this._apiService.getEventConferenceRoom(this.eventEntry.ConferenceRoomId)
                 .then(data => {
