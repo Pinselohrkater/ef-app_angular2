@@ -4,6 +4,7 @@ import 'rxjs/Rx';
 import * as _ from 'lodash';
 
 import {LocalStorage, SessionStorage} from '../localStorage/WebStorage'
+import {ENV} from "../main";
 
 
 @Injectable()
@@ -13,7 +14,7 @@ export class ApiService {
     @LocalStorage() _eventConferenceDays:EventConferenceDay[] = [];
     @LocalStorage() _eventConferenceRooms:EventConferenceRoom[] = [];
     @LocalStorage() _dealers:Dealer[] = [];
-    @LocalStorage() _images: Image[] = [];
+    @LocalStorage() _images:Image[] = [];
 
     constructor(private _http:Http) {
 
@@ -28,7 +29,6 @@ export class ApiService {
                     .toPromise()
                     .then(this.extractData)
                     .then(entities => {
-                        console.log(entities)
                         store.push(...entities);
                         resolve(store);
                     });
@@ -36,7 +36,7 @@ export class ApiService {
         });
     }
 
-    getImages(): Promise<Image[]> {
+    getImages():Promise<Image[]> {
         return this.getEntities("Image", this._images);
     }
 
@@ -63,6 +63,7 @@ export class ApiService {
             })
         })
     }
+
     getDealer(id:string):Promise<Dealer> {
         return new Promise<Dealer>(resolve => {
             this.getDealers().then(entities => {
@@ -141,10 +142,10 @@ export class EventConferenceRoom {
 }
 
 export class Image {
-    Id: string;
-    Url: string;
-    Title: string;
-    Width: number;
-    Height: number;
-    MimeType: string;
+    Id:string;
+    Url:string;
+    Title:string;
+    Width:number;
+    Height:number;
+    MimeType:string;
 }
