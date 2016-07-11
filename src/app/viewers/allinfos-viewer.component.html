@@ -1,0 +1,11 @@
+<div *ngFor="let infoGroup of infoGroups">
+    <h3>{{ infoGroup.Name }}</h3>
+    <p>{{infoGroup.Description}}</p>
+    <div *ngFor="let info of infos">
+        <div *ngIf="info.InfoGroupId == infoGroup.Id">
+            <div style="padding: 5px;">
+                <h4>{{ info.Title }} <a class="btn btn-default pull-right" [routerLink]="['/info/' + info.Id]">Read it!</a></h4>
+            </div>
+        </div>
+    </div>
+</div>

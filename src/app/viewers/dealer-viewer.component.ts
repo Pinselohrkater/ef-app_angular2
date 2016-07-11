@@ -43,6 +43,8 @@ export class DealerViewerComponent implements OnInit {
         this._apiService.getDealer(this.id).then(data => {
             this.dealer = data;
 
+            window.location.assign("eurofurence://dealer/" + this.dealer.Id);
+
             this._apiService.getImage(this.dealer.ArtistImageId).then(data => {
                 this.dealerPreviewImage = data;
             });
