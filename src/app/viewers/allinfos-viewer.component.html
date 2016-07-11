@@ -3,10 +3,8 @@
     <p>{{infoGroup.Description}}</p>
     <div *ngFor="let info of infos">
         <div *ngIf="info.InfoGroupId == infoGroup.Id">
-            <div>
-                <h4>{{ info.Title }}</h4>
-                <p>{{ info.Text | slice:0:200 }} ... </p>
-                <a href="#" class="btn btn-default">Read more!</a>
+            <div style="padding: 5px;">
+                <h4>{{ info.Title }} <a class="btn btn-default pull-right" [routerLink]="['/info/' + info.Id]">Read it!</a></h4>
             </div>
         </div>
     </div>

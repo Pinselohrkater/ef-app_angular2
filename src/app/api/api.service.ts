@@ -14,8 +14,8 @@ export class ApiService {
     @LocalStorage() _eventConferenceRooms:EventConferenceRoom[] = [];
     @LocalStorage() _dealers:Dealer[] = [];
     @LocalStorage() _images:Image[] = [];
-    @LocalStorage() _infoGroups: InfoGroup[] = [];
-    @LocalStorage() _infos: Info[] = [];
+    @LocalStorage() _infoGroups:InfoGroup[] = [];
+    @LocalStorage() _infos:Info[] = [];
 
     constructor(private _http:Http) {
 
@@ -37,13 +37,14 @@ export class ApiService {
         });
     }
 
-    getInfoGroups():Promise<InfoGroup[]>{
+    getInfoGroups():Promise<InfoGroup[]> {
         return this.getEntities("InfoGroup", this._infoGroups);
     }
 
-    getInfos(): Promise<Info[]> {
+    getInfos():Promise<Info[]> {
         return this.getEntities("Info", this._infos);
     }
+
     getImages():Promise<Image[]> {
         return this.getEntities("Image", this._images);
     }
@@ -62,6 +63,14 @@ export class ApiService {
 
     getDealers():Promise<Dealer[]> {
         return this.getEntities("Dealer", this._dealers);
+    }
+
+    getInfo(id:string):Promise<Info> {
+        return new Promise<Info>(resolve => {
+            this.getInfos().then(entities=> {
+                resolve(_.find(entities, {"Id": id}));
+            })
+        })
     }
 
     getImage(id:string):Promise<Image> {
@@ -159,19 +168,19 @@ export class Image {
 }
 
 export class Info {
-    Id: string;
-    ImageId: string;
-    Title: string;
-    Text: string;
-    Position: string;
-    ImageIds: string[];
-    InfoGroupId: string;
+    Id:string;
+    ImageId:string;
+    Title:string;
+    Text:string;
+    Position:string;
+    ImageIds:string[];
+    InfoGroupId:string;
 }
 
 export class InfoGroup {
-    Id: string;
-    Name: string;
-    Description: string;
-    ImageId: string;
-    Position: string;
+    Id:string;
+    Name:string;
+    Description:string;
+    ImageId:string;
+    Position:string;
 }
