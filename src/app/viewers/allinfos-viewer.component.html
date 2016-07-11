@@ -1,0 +1,13 @@
+<div *ngFor="let infoGroup of infoGroups">
+    <h3>{{ infoGroup.Name }}</h3>
+    <p>{{infoGroup.Description}}</p>
+    <div *ngFor="let info of infos">
+        <div *ngIf="info.InfoGroupId == infoGroup.Id">
+            <div>
+                <h4>{{ info.Title }}</h4>
+                <p>{{ info.Text | slice:0:200 }} ... </p>
+                <a href="#" class="btn btn-default">Read more!</a>
+            </div>
+        </div>
+    </div>
+</div>
