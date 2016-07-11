@@ -1,0 +1,18 @@
+<h1>All dealers</h1>
+
+<div *ngFor='let dealer of dealers'>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div *ngIf="dealer.DisplayName != ''">
+                <h3>{{ dealer.DisplayName }} <i> by {{dealer.AttendeeNickname}}</i></h3>
+            </div>
+            <div *ngIf="dealer.DisplayName == ''">
+                <h3>{{ dealer.AttendeeNickname}}</h3>
+            </div>
+        </div>
+        <div class="panel-body">
+            <p>{{ dealer.ShortDescription }}</p>
+            <a class="btn btn-default" [routerLink]="['/dealer/' + dealer.Id]">Learn More</a>
+        </div>
+    </div>
+</div>
