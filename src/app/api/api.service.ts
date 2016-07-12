@@ -17,6 +17,8 @@ export class ApiService {
     @LocalStorage() _infoGroups:InfoGroup[] = [];
     @LocalStorage() _infos:Info[] = [];
 
+    @LocalStorage() _lastSyncDate:Date = Date();
+
     constructor(private _http:Http) {
 
     }
